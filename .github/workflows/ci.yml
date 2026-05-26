@@ -11,14 +11,4 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      - name: Checkout atproto-primitive-kit sibling
-        uses: actions/checkout@v4
-        with:
-          repository: Stygian-Tech/atproto-primitive-kit
-          path: atproto-primitive-kit
-      - name: Link atproto-primitive-kit for local path dependency
-        run: |
-          if [[ ! -d ../atproto-primitive-kit ]]; then
-            ln -s "$GITHUB_WORKSPACE/atproto-primitive-kit" ../atproto-primitive-kit
-          fi
       - run: bash scripts/check.sh
