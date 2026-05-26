@@ -11,14 +11,14 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      - name: Checkout stygian-core sibling
+      - name: Checkout atproto-primitives sibling
         uses: actions/checkout@v4
         with:
-          repository: Stygian-Tech/stygian-core
-          path: stygian-core
-      - name: Link stygian-core for local path dependency
+          repository: Stygian-Tech/atproto-primitives
+          path: atproto-primitives
+      - name: Link atproto-primitives for local path dependency
         run: |
-          if [[ ! -d ../stygian-core ]]; then
-            ln -s "$GITHUB_WORKSPACE/stygian-core" ../stygian-core
+          if [[ ! -d ../atproto-primitives ]]; then
+            ln -s "$GITHUB_WORKSPACE/atproto-primitives" ../atproto-primitives
           fi
       - run: bash scripts/check.sh

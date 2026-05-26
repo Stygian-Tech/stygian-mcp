@@ -1,1 +1,7 @@
-# stygian-mcp\n\nScaffold for future suite integration.
+# mcp-server-kit
+
+Scaffold for a Model Context Protocol server layer (tool registry, schema validation, transport).
+
+## License
+
+MIT

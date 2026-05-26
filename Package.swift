@@ -1,12 +1,12 @@
 // swift-tools-version: 6.0
 import PackageDescription
 let package = Package(
-  name: "stygian-mcp",
+  name: "mcp-server-kit",
   platforms: [.macOS(.v14)],
-  products: [.library(name: "StygianMCP", targets: ["StygianMCP"])],
-  dependencies: [.package(path: "../stygian-core")],
+  products: [.library(name: "MCPServerKit", targets: ["MCPServerKit"])],
+  dependencies: [.package(path: "../atproto-primitives")],
   targets: [
-    .target(name: "StygianMCP", dependencies: [.product(name: "StygianCore", package: "stygian-core")], path: "Sources/StygianMCP"),
-    .testTarget(name: "StygianMCPTests", dependencies: ["StygianMCP"], path: "Tests/StygianMCPTests"),
+    .target(name: "MCPServerKit", dependencies: [.product(name: "AtprotoPrimitives", package: "atproto-primitives")], path: "Sources/MCPServerKit"),
+    .testTarget(name: "MCPServerKitTests", dependencies: ["MCPServerKit"], path: "Tests/MCPServerKitTests"),
   ]
 )
