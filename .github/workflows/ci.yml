@@ -8,10 +8,17 @@ permissions:
   contents: read
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      - uses: swift-actions/setup-swift@v2
+      - name: Checkout stygian-core sibling
+        uses: actions/checkout@v4
         with:
-          swift-version: "6.0"
+          repository: Stygian-Tech/stygian-core
+          path: stygian-core
+      - name: Link stygian-core for local path dependency
+        run: |
+          if [[ ! -d ../stygian-core ]]; then
+            ln -s "$GITHUB_WORKSPACE/stygian-core" ../stygian-core
+          fi
       - run: bash scripts/check.sh
